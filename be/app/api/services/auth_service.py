@@ -45,10 +45,13 @@ class AuthService:
     def login(email, password):
         user = db.session.query(User).filter_by(email=email.lower()).first()
 
+        if not user:
+            raise UnauthorizedError("User not found")
+
         if user.auth_provider == 'google' and not user.password_hash:
             raise UnauthorizedError("Akun ini terdaftar via Google. Silakan login dengan Google.")
         
-        if not user or not verify_password(password, user.password_hash):
+        if not verify_password(password, user.password_hash):
             raise UnauthorizedError("Invalid email or password")
         
         if not user.is_active:
