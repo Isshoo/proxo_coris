@@ -26,7 +26,7 @@ class Config:
     
     # JWT
     JWT_SECRET_KEY = get_env('JWT_SECRET_KEY', 'jwt-secret-key-change-in-production')
-    JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=1)
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(hours=24)
     JWT_REFRESH_TOKEN_EXPIRES = timedelta(days=30)
     JWT_TOKEN_LOCATION = ['headers']
     JWT_HEADER_NAME = 'Authorization'
@@ -48,6 +48,10 @@ class Config:
     CLOUDINARY_CLOUD_NAME = get_env('CLOUDINARY_CLOUD_NAME')
     CLOUDINARY_API_KEY = get_env('CLOUDINARY_API_KEY')
     CLOUDINARY_API_SECRET = get_env('CLOUDINARY_API_SECRET')
+
+    # Google OAuth
+    GOOGLE_CLIENT_ID = get_env('GOOGLE_CLIENT_ID')
+    GOOGLE_CLIENT_SECRET = get_env('GOOGLE_CLIENT_SECRET')
     
     # Rate Limiting
     RATELIMIT_DEFAULT = "200/day;50/hour"
