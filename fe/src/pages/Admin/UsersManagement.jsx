@@ -67,11 +67,13 @@ function AdminDashboard() {
   };
 
   return (
-    <div className="space-y-6">
-      <h1 className="text-2xl font-bold text-gray-800">Manajemen User</h1>
+    <div className="space-y-4 md:space-y-6">
+      <h1 className="text-xl md:text-2xl font-bold text-gray-800">
+        Manajemen User
+      </h1>
 
       {/* Filter & Search */}
-      <div className="bg-white rounded-xl p-4 shadow-sm border border-gray-100 space-y-3">
+      <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border border-gray-100 space-y-3">
         <form onSubmit={handleSearch} className="flex gap-2">
           <input
             type="text"
@@ -80,23 +82,23 @@ function AdminDashboard() {
             onChange={(e) =>
               setQuery((q) => ({ ...q, search: e.target.value }))
             }
-            className="flex-1 border rounded-lg px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="flex-1 border rounded-lg px-3 md:px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           />
           <button
             type="submit"
-            className="bg-indigo-600 text-white px-4 py-2 rounded-lg text-sm hover:bg-indigo-700 transition"
+            className="bg-indigo-600 text-white px-3 md:px-4 py-2 rounded-lg text-sm hover:bg-indigo-700 transition"
           >
             Cari
           </button>
         </form>
 
-        <div className="flex gap-3 flex-wrap">
+        <div className="flex gap-2 md:gap-3 flex-wrap">
           <select
             value={query.role}
             onChange={(e) =>
               setQuery((q) => ({ ...q, role: e.target.value, page: 1 }))
             }
-            className="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="border rounded-lg px-2 md:px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <option value="">Semua Role</option>
             <option value="user">User</option>
@@ -108,7 +110,7 @@ function AdminDashboard() {
             onChange={(e) =>
               setQuery((q) => ({ ...q, is_verified: e.target.value, page: 1 }))
             }
-            className="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="border rounded-lg px-2 md:px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <option value="">Semua Status</option>
             <option value="true">Terverifikasi</option>
@@ -120,7 +122,7 @@ function AdminDashboard() {
             onChange={(e) =>
               setQuery((q) => ({ ...q, sort_order: e.target.value, page: 1 }))
             }
-            className="border rounded-lg px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="border rounded-lg px-2 md:px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
           >
             <option value="desc">Terbaru</option>
             <option value="asc">Terlama</option>
@@ -128,7 +130,7 @@ function AdminDashboard() {
         </div>
       </div>
 
-      {/* Table */}
+      {/* Table / Card view */}
       <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
         {error && (
           <div className="p-4 text-red-600 text-sm bg-red-50">{error}</div>
@@ -143,121 +145,213 @@ function AdminDashboard() {
             Tidak ada user ditemukan
           </div>
         ) : (
-          <div className="overflow-x-auto">
-            <table className="w-full text-sm">
-              <thead className="bg-gray-50 border-b border-gray-100">
-                <tr>
-                  <th className="text-left px-4 py-3 text-gray-600 font-medium">
-                    User
-                  </th>
-                  <th className="text-left px-4 py-3 text-gray-600 font-medium">
-                    Role
-                  </th>
-                  <th className="text-left px-4 py-3 text-gray-600 font-medium">
-                    Status
-                  </th>
-                  <th className="text-left px-4 py-3 text-gray-600 font-medium">
-                    Login via
-                  </th>
-                  <th className="text-left px-4 py-3 text-gray-600 font-medium">
-                    Dibuat
-                  </th>
-                  <th className="text-right px-4 py-3 text-gray-600 font-medium">
-                    Aksi
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-gray-50">
-                {users.map((user) => (
-                  <tr key={user.id} className="hover:bg-gray-50 transition">
-                    <td className="px-4 py-3">
-                      <div className="flex items-center gap-3">
-                        {user.avatar_url ? (
-                          <img
-                            src={user.avatar_url}
-                            alt=""
-                            referrerPolicy="no-referrer"
-                            className="w-8 h-8 rounded-full object-cover"
-                          />
-                        ) : (
-                          <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">
-                            {user.full_name?.charAt(0).toUpperCase() || "?"}
+          <>
+            {/* Desktop: Table */}
+            <div className="hidden md:block overflow-x-auto">
+              <table className="w-full text-sm">
+                <thead className="bg-gray-50 border-b border-gray-100">
+                  <tr>
+                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                      User
+                    </th>
+                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                      Role
+                    </th>
+                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                      Status
+                    </th>
+                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                      Masuk via
+                    </th>
+                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                      Dibuat
+                    </th>
+                    <th className="text-right px-4 py-3 text-gray-600 font-medium">
+                      Aksi
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="divide-y divide-gray-50">
+                  {users.map((user) => (
+                    <tr key={user.id} className="hover:bg-gray-50 transition">
+                      <td className="px-4 py-3">
+                        <div className="flex items-center gap-3">
+                          {user.avatar_url ? (
+                            <img
+                              src={user.avatar_url}
+                              alt=""
+                              referrerPolicy="no-referrer"
+                              className="w-8 h-8 rounded-full object-cover"
+                            />
+                          ) : (
+                            <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">
+                              {user.full_name?.charAt(0).toUpperCase() || "?"}
+                            </div>
+                          )}
+                          <div>
+                            <p className="font-medium text-gray-800">
+                              {user.full_name || "-"}
+                            </p>
+                            <p className="text-gray-400 text-xs">
+                              {user.email}
+                            </p>
                           </div>
-                        )}
-                        <div>
-                          <p className="font-medium text-gray-800">
-                            {user.full_name || "-"}
-                          </p>
-                          <p className="text-gray-400 text-xs">{user.email}</p>
                         </div>
+                      </td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`px-2 py-1 rounded-full text-xs font-medium ${
+                            user.role === "admin"
+                              ? "bg-purple-100 text-purple-700"
+                              : "bg-gray-100 text-gray-600"
+                          }`}
+                        >
+                          {user.role}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3">
+                        {!user.is_active ? (
+                          <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-600">
+                            Nonaktif
+                          </span>
+                        ) : user.is_verified ? (
+                          <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
+                            Aktif
+                          </span>
+                        ) : (
+                          <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-600">
+                            Belum Verifikasi
+                          </span>
+                        )}
+                      </td>
+                      <td className="px-4 py-3 text-gray-500 capitalize">
+                        {user.auth_provider === "google"
+                          ? "🔵 Google"
+                          : "✉️ Email"}
+                      </td>
+                      <td className="px-4 py-3 text-gray-400 text-xs">
+                        {new Date(user.created_at).toLocaleDateString("id-ID", {
+                          day: "2-digit",
+                          month: "short",
+                          year: "numeric",
+                        })}
+                      </td>
+                      <td className="px-4 py-3 text-right">
+                        <div className="flex items-center justify-end gap-2">
+                          {user.is_active && (
+                            <button
+                              onClick={() => handleDeactivate(user.id)}
+                              className="text-xs text-yellow-600 hover:text-yellow-800 transition"
+                            >
+                              Nonaktifkan
+                            </button>
+                          )}
+                          <button
+                            onClick={() => handleDelete(user.id)}
+                            className="text-xs text-red-500 hover:text-red-700 transition"
+                          >
+                            Hapus
+                          </button>
+                        </div>
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+
+            {/* Mobile: Card view */}
+            <div className="md:hidden divide-y divide-gray-100">
+              {users.map((user) => (
+                <div key={user.id} className="p-4 space-y-3">
+                  {/* User info */}
+                  <div className="flex items-center gap-3">
+                    {user.avatar_url ? (
+                      <img
+                        src={user.avatar_url}
+                        alt=""
+                        referrerPolicy="no-referrer"
+                        className="w-10 h-10 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm">
+                        {user.full_name?.charAt(0).toUpperCase() || "?"}
                       </div>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`px-2 py-1 rounded-full text-xs font-medium ${
-                          user.role === "admin"
-                            ? "bg-purple-100 text-purple-700"
-                            : "bg-gray-100 text-gray-600"
-                        }`}
-                      >
-                        {user.role}
+                    )}
+                    <div className="flex-1 min-w-0">
+                      <p className="font-medium text-gray-800 truncate">
+                        {user.full_name || "-"}
+                      </p>
+                      <p className="text-gray-400 text-xs truncate">
+                        {user.email}
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Badges */}
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span
+                      className={`px-2 py-1 rounded-full text-xs font-medium ${
+                        user.role === "admin"
+                          ? "bg-purple-100 text-purple-700"
+                          : "bg-gray-100 text-gray-600"
+                      }`}
+                    >
+                      {user.role}
+                    </span>
+                    {!user.is_active ? (
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-600">
+                        Nonaktif
                       </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      {!user.is_active ? (
-                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-600">
-                          Nonaktif
-                        </span>
-                      ) : user.is_verified ? (
-                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
-                          Aktif
-                        </span>
-                      ) : (
-                        <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-600">
-                          Belum Verifikasi
-                        </span>
-                      )}
-                    </td>
-                    <td className="px-4 py-3 text-gray-500 capitalize">
+                    ) : user.is_verified ? (
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
+                        Aktif
+                      </span>
+                    ) : (
+                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-600">
+                        Belum Verifikasi
+                      </span>
+                    )}
+                    <span className="text-xs text-gray-400">
                       {user.auth_provider === "google"
                         ? "🔵 Google"
                         : "✉️ Email"}
-                    </td>
-                    <td className="px-4 py-3 text-gray-400 text-xs">
+                    </span>
+                    <span className="text-xs text-gray-400">
                       {new Date(user.created_at).toLocaleDateString("id-ID", {
                         day: "2-digit",
                         month: "short",
                         year: "numeric",
                       })}
-                    </td>
-                    <td className="px-4 py-3 text-right">
-                      <div className="flex items-center justify-end gap-2">
-                        {user.is_active && (
-                          <button
-                            onClick={() => handleDeactivate(user.id)}
-                            className="text-xs text-yellow-600 hover:text-yellow-800 transition"
-                          >
-                            Nonaktifkan
-                          </button>
-                        )}
-                        <button
-                          onClick={() => handleDelete(user.id)}
-                          className="text-xs text-red-500 hover:text-red-700 transition"
-                        >
-                          Hapus
-                        </button>
-                      </div>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
+                    </span>
+                  </div>
+
+                  {/* Actions */}
+                  <div className="flex gap-3 pt-1">
+                    {user.is_active && (
+                      <button
+                        onClick={() => handleDeactivate(user.id)}
+                        className="text-xs text-yellow-600 hover:text-yellow-800 transition font-medium"
+                      >
+                        Nonaktifkan
+                      </button>
+                    )}
+                    <button
+                      onClick={() => handleDelete(user.id)}
+                      className="text-xs text-red-500 hover:text-red-700 transition font-medium"
+                    >
+                      Hapus
+                    </button>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </>
         )}
 
         {/* Pagination */}
         {meta && meta.total_pages > 1 && (
-          <div className="px-4 py-3 border-t border-gray-100 flex items-center justify-between text-sm text-gray-500">
+          <div className="px-4 py-3 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
             <span>
               Menampilkan {users.length} dari {meta.total} user
             </span>
