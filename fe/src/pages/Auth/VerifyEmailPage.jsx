@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { useSearchParams, Link } from "react-router";
-import api, { authAPI } from "../../services/api/axios";
+import api from "../../services/api/axios";
+import { authAPI } from "../../services/api/routes/auth.route";
 
 export default function VerifyEmailPage() {
   const [searchParams] = useSearchParams();

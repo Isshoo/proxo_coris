@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useSearchParams, Link, useNavigate } from "react-router";
-import { authAPI } from "../../services/api/axios";
+import { authAPI } from "../../services/api/routes/auth.route";
 
 export default function ResetPasswordPage() {
   const [searchParams] = useSearchParams();

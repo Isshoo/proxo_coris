@@ -1,6 +1,6 @@
 import { useGoogleLogin } from "@react-oauth/google";
 import { useAuth } from "../../../contexts/AuthContext";
-import { authAPI } from "../../../services/api/axios";
+import { authAPI } from "../../../services/api/routes/auth.route";
 import GoogleIcon from "./GoogleIcon";
 
 export function GoogleLoginButton({ onSuccess, onError, disabled = false }) {

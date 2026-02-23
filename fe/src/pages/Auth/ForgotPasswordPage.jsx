@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Link } from "react-router";
-import { authAPI } from "../../services/api/axios";
+import { authAPI } from "../../services/api/routes/auth.route";
 
 export default function ForgotPasswordPage() {
   const [email, setEmail] = useState("");

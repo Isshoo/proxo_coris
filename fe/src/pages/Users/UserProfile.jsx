@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import { useAuth } from "../../contexts/AuthContext";
-import { userAPI, authAPI } from "../../services/api/axios";
-import { getToken } from "../../utils/helpers";
+import { userAPI } from "../../services/api/routes/user.route";
+import { authAPI } from "../../services/api/routes/auth.route";
+import { getToken } from "../../utils/storage";
 
 function UserProfile() {
   const { user, saveSession, refreshUser } = useAuth();

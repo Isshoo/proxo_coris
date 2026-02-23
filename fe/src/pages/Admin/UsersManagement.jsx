@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { userAPI } from "../../services/api/axios";
+import { userAPI } from "../../services/api/routes/user.route";
 
 function AdminDashboard() {
   const [users, setUsers] = useState([]);
