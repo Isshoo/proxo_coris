@@ -176,6 +176,7 @@ function AdminDashboard() {
                           <img
                             src={user.avatar_url}
                             alt=""
+                            referrerPolicy="no-referrer"
                             className="w-8 h-8 rounded-full object-cover"
                           />
                         ) : (

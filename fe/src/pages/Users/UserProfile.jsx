@@ -134,6 +134,7 @@ function UserProfile() {
             <img
               src={user.avatar_url}
               alt="avatar"
+              referrerPolicy="no-referrer"
               className="w-20 h-20 rounded-full object-cover"
             />
           ) : (
