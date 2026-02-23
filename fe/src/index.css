@@ -1,1 +1,11 @@
 @import "tailwindcss";
+
+/* Dark mode: aktif saat <html> punya class "dark" */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Smooth transition saat ganti tema */
+@layer base {
+  html {
+    @apply transition-colors duration-200;
+  }
+}
