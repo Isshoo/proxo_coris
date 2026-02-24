@@ -1,8 +1,8 @@
-import Artikel from "../components/features/public/lannding/Artikel";
-import Fitur from "../components/features/public/lannding/Fitur";
-import Hero from "../components/features/public/lannding/Hero";
-import Peta from "../components/features/public/lannding/Peta";
-import Tujuan from "../components/features/public/lannding/Tujuan";
+import Artikel from "../../components/features/public/landing/Artikel";
+import Fitur from "../../components/features/public/landing/Fitur";
+import Hero from "../../components/features/public/landing/Hero";
+import Peta from "../../components/features/public/landing/Peta";
+import Tujuan from "../../components/features/public/landing/Tujuan";
 
 function LandingPage() {
   return (

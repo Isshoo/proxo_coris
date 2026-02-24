@@ -11,17 +11,17 @@ import AdminLayout from "./components/layouts/AdminLayout";
 import AuthLayout from "./components/layouts/AuthLayout";
 
 /* pages */
-import LandingPage from "./pages/LandingPage";
-import LoginPage from "./pages/Auth/LoginPage";
-import RegisterPage from "./pages/Auth/RegisterPage";
-import ForgotPasswordPage from "./pages/Auth/ForgotPasswordPage";
-import ResetPasswordPage from "./pages/Auth/ResetPasswordPage";
-import VerifyEmailPage from "./pages/Auth/VerifyEmailPage";
+import LandingPage from "./pages/public/LandingPage";
+import LoginPage from "./pages/auth/LoginPage";
+import RegisterPage from "./pages/auth/RegisterPage";
+import ForgotPasswordPage from "./pages/auth/ForgotPasswordPage";
+import ResetPasswordPage from "./pages/auth/ResetPasswordPage";
+import VerifyEmailPage from "./pages/auth/VerifyEmailPage";
 import NotFoundPage from "./pages/NotFoundPage";
-import UserProfile from "./pages/Users/UserProfile";
-import AdminDashboard from "./pages/Admin/AdminDashboard";
-import AdminProfile from "./pages/Admin/AdminProfile";
-import UsersManagement from "./pages/Admin/UsersManagement";
+import UserProfile from "./pages/user/UserProfilePage";
+import AdminDashboard from "./pages/admin/AdminDashboardPage";
+import AdminProfile from "./pages/admin/AdminProfilePage";
+import UsersManagement from "./pages/admin/AdminUserManagementPage";
 
 function App() {
   return (
