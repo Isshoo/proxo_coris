@@ -1,11 +1,24 @@
+import Artikel from "../components/features/public/lannding/Artikel";
+import Fitur from "../components/features/public/lannding/Fitur";
+import Hero from "../components/features/public/lannding/Hero";
+import Peta from "../components/features/public/lannding/Peta";
+import Tujuan from "../components/features/public/lannding/Tujuan";
+
 function LandingPage() {
   return (
-    <div>
-      {/* Hero */}
-      <div className="max-w-4xl mx-auto px-6 py-24 text-center space-y-6">
-        <h1 className="text-5xl font-extrabold text-gray-900 leading-tight">
-          <span className="text-black">LasalleVibers</span>
-        </h1>
+    <div className="relative w-full">
+      {/* image vector background */}
+      <img
+        src="images/landing-bg.png"
+        alt="landing"
+        className="absolute top-0 left-0 z-0 w-full object-cover"
+      />
+      <div className="relative z-10">
+        <Hero />
+        <Fitur />
+        <Tujuan />
+        <Peta />
+        <Artikel />
       </div>
     </div>
   );

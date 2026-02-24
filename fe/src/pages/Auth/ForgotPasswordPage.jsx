@@ -29,23 +29,23 @@ export default function ForgotPasswordPage() {
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md space-y-5">
-        <h1 className="text-2xl font-bold text-center text-gray-800">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50">
+      <div className="w-full max-w-md space-y-5 rounded-xl bg-white p-8 shadow-md">
+        <h1 className="text-center text-2xl font-bold text-gray-800">
           Lupa Password
         </h1>
-        <p className="text-sm text-gray-500 text-center">
+        <p className="text-center text-sm text-gray-500">
           Masukkan email kamu dan kami akan mengirimkan link untuk reset
           password.
         </p>
 
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg">
+          <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
             {error}
           </div>
         )}
         {success && (
-          <div className="bg-green-50 text-green-700 text-sm p-3 rounded-lg">
+          <div className="rounded-lg bg-green-50 p-3 text-sm text-green-700">
             {success}
           </div>
         )}
@@ -57,19 +57,19 @@ export default function ForgotPasswordPage() {
               placeholder="Email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full rounded-lg border px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
               required
             />
             <button
               type="submit"
               disabled={loading}
-              className="w-full bg-indigo-600 text-white py-2.5 rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition font-medium"
+              className="w-full rounded-lg bg-indigo-600 py-2.5 font-medium text-white transition hover:bg-indigo-700 disabled:opacity-50"
             >
               {loading ? "Mengirim..." : "Kirim Link Reset"}
             </button>
           </form>
         ) : (
-          <p className="text-sm text-gray-500 text-center">
+          <p className="text-center text-sm text-gray-500">
             Cek inbox atau folder spam di email kamu.
           </p>
         )}
@@ -77,7 +77,7 @@ export default function ForgotPasswordPage() {
         <p className="text-center text-sm text-gray-500">
           <Link
             to="/login"
-            className="text-indigo-600 hover:underline font-medium"
+            className="font-medium text-indigo-600 hover:underline"
           >
             ← Kembali ke Halaman Masuk
           </Link>

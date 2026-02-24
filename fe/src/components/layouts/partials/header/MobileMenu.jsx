@@ -18,32 +18,32 @@ function MobileMenu({ isAuthenticated, user, onLogout }) {
       <div className="flex items-center gap-2 md:hidden">
         <button
           onClick={() => setMenuOpen(!menuOpen)}
-          className="text-gray-600 hover:text-black hover:font-bold transition p-1 cursor-pointer"
+          className="cursor-pointer p-1 text-gray-600 transition hover:font-bold hover:text-black"
           aria-label="Toggle menu"
         >
           {menuOpen ? (
-            <LuX className="w-6 h-6" />
+            <LuX className="h-6 w-6" />
           ) : (
-            <LuMenu className="w-6 h-6" />
+            <LuMenu className="h-6 w-6" />
           )}
         </button>
       </div>
 
       {/* Dropdown menu */}
       {menuOpen && (
-        <div className="md:hidden absolute left-0 right-0 top-full bg-white border-b border-gray-200 px-4 pb-3 pt-3 space-y-1 z-40 shadow-sm">
+        <div className="absolute top-full right-0 left-0 z-40 space-y-1 border-b border-gray-200 bg-white px-4 pt-3 pb-3 shadow-sm md:hidden">
           {/* Navigation */}
           <Link
             to="/"
             onClick={() => setMenuOpen(false)}
-            className="block px-3 py-2.5 text-sm text-gray-700 hover:text-black hover:font-semibold hover:bg-gray-50 rounded-lg transition font-medium"
+            className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:font-semibold hover:text-black"
           >
             Beranda
           </Link>
           <Link
             to="/peta"
             onClick={() => setMenuOpen(false)}
-            className="block px-3 py-2.5 text-sm text-gray-700 hover:text-black hover:font-semibold hover:bg-gray-50 rounded-lg transition font-medium"
+            className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:font-semibold hover:text-black"
           >
             Peta
           </Link>
@@ -52,23 +52,23 @@ function MobileMenu({ isAuthenticated, user, onLogout }) {
           <div>
             <button
               onClick={() => setMobileFiturOpen(!mobileFiturOpen)}
-              className="flex items-center justify-between w-full px-3 py-2.5 text-sm text-gray-700 hover:text-black hover:font-semibold hover:bg-gray-50 rounded-lg transition font-medium cursor-pointer"
+              className="flex w-full cursor-pointer items-center justify-between rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:font-semibold hover:text-black"
             >
               Fitur
               <LuChevronDown
-                className={`w-4 h-4 transition-transform duration-200 ${
+                className={`h-4 w-4 transition-transform duration-200 ${
                   mobileFiturOpen ? "rotate-180" : ""
                 }`}
               />
             </button>
             {mobileFiturOpen && (
-              <div className="ml-4 mt-1 space-y-1 border-l-2 border-emerald-200 pl-3">
+              <div className="mt-1 ml-4 space-y-1 border-l-2 border-emerald-200 pl-3">
                 {fiturItems.map((item) => (
                   <Link
                     key={item.path}
                     to={item.path}
                     onClick={() => setMenuOpen(false)}
-                    className="block py-2 text-sm text-gray-600 hover:text-black hover:font-semibold hover:bg-gray-50 rounded-lg transition font-medium"
+                    className="block rounded-lg py-2 text-sm font-medium text-gray-600 transition hover:bg-gray-50 hover:font-semibold hover:text-black"
                   >
                     {item.label}
                   </Link>
@@ -78,14 +78,14 @@ function MobileMenu({ isAuthenticated, user, onLogout }) {
           </div>
 
           {/* Auth section */}
-          <div className="border-t border-gray-200 pt-2 mt-2">
+          <div className="mt-2 border-t border-gray-200 pt-2">
             {isAuthenticated ? (
               <>
                 <div className="px-3 py-2">
-                  <p className="text-sm font-semibold text-gray-800 truncate">
+                  <p className="truncate text-sm font-semibold text-gray-800">
                     {user?.username || user?.full_name}
                   </p>
-                  <p className="text-xs text-gray-500 truncate">
+                  <p className="truncate text-xs text-gray-500">
                     {user?.email}
                   </p>
                 </div>
@@ -93,7 +93,7 @@ function MobileMenu({ isAuthenticated, user, onLogout }) {
                   <Link
                     to="/admin"
                     onClick={() => setMenuOpen(false)}
-                    className="block px-3 py-2.5 text-sm text-gray-700 hover:text-emerald-600 hover:bg-gray-50 rounded-lg transition font-medium"
+                    className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:text-emerald-600"
                   >
                     Admin Panel
                   </Link>
@@ -101,13 +101,13 @@ function MobileMenu({ isAuthenticated, user, onLogout }) {
                 <Link
                   to="/profile"
                   onClick={() => setMenuOpen(false)}
-                  className="block px-3 py-2.5 text-sm text-gray-700 hover:text-emerald-600 hover:bg-gray-50 rounded-lg transition font-medium"
+                  className="block rounded-lg px-3 py-2.5 text-sm font-medium text-gray-700 transition hover:bg-gray-50 hover:text-emerald-600"
                 >
                   Profil
                 </Link>
                 <button
                   onClick={handleLogout}
-                  className="block w-full text-left px-3 py-2.5 text-sm text-red-500 hover:text-red-600 hover:bg-red-50 rounded-lg transition font-medium cursor-pointer"
+                  className="block w-full cursor-pointer rounded-lg px-3 py-2.5 text-left text-sm font-medium text-red-500 transition hover:bg-red-50 hover:text-red-600"
                 >
                   Keluar
                 </button>
@@ -116,7 +116,7 @@ function MobileMenu({ isAuthenticated, user, onLogout }) {
               <Link
                 to="/login"
                 onClick={() => setMenuOpen(false)}
-                className="block mx-3 mt-1 text-center px-4 py-2.5 bg-gray-900 text-white rounded-lg hover:bg-black transition font-medium text-sm"
+                className="mx-3 mt-1 block rounded-lg bg-gray-900 px-4 py-2.5 text-center text-sm font-medium text-white transition hover:bg-black"
               >
                 Bergabung
               </Link>

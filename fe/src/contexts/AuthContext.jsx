@@ -77,11 +77,6 @@ export const AuthProvider = ({ children }) => {
   };
 
   const logout = async () => {
-    // try {
-    //   await authAPI.logout();
-    // } catch {
-    //   // ignore error
-    // }
     clearAuth();
     setUserState(null);
   };

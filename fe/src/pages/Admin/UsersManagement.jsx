@@ -68,12 +68,12 @@ function AdminDashboard() {
 
   return (
     <div className="space-y-4 md:space-y-6">
-      <h1 className="text-xl md:text-2xl font-bold text-gray-800">
+      <h1 className="text-xl font-bold text-gray-800 md:text-2xl">
         Manajemen User
       </h1>
 
       {/* Filter & Search */}
-      <div className="bg-white rounded-xl p-3 md:p-4 shadow-sm border border-gray-100 space-y-3">
+      <div className="space-y-3 rounded-xl border border-gray-100 bg-white p-3 shadow-sm md:p-4">
         <form onSubmit={handleSearch} className="flex gap-2">
           <input
             type="text"
@@ -82,23 +82,23 @@ function AdminDashboard() {
             onChange={(e) =>
               setQuery((q) => ({ ...q, search: e.target.value }))
             }
-            className="flex-1 border rounded-lg px-3 md:px-4 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="flex-1 rounded-lg border px-3 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none md:px-4"
           />
           <button
             type="submit"
-            className="bg-indigo-600 text-white px-3 md:px-4 py-2 rounded-lg text-sm hover:bg-indigo-700 transition"
+            className="rounded-lg bg-indigo-600 px-3 py-2 text-sm text-white transition hover:bg-indigo-700 md:px-4"
           >
             Cari
           </button>
         </form>
 
-        <div className="flex gap-2 md:gap-3 flex-wrap">
+        <div className="flex flex-wrap gap-2 md:gap-3">
           <select
             value={query.role}
             onChange={(e) =>
               setQuery((q) => ({ ...q, role: e.target.value, page: 1 }))
             }
-            className="border rounded-lg px-2 md:px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border px-2 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none md:px-3"
           >
             <option value="">Semua Role</option>
             <option value="user">User</option>
@@ -110,7 +110,7 @@ function AdminDashboard() {
             onChange={(e) =>
               setQuery((q) => ({ ...q, is_verified: e.target.value, page: 1 }))
             }
-            className="border rounded-lg px-2 md:px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border px-2 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none md:px-3"
           >
             <option value="">Semua Status</option>
             <option value="true">Terverifikasi</option>
@@ -122,7 +122,7 @@ function AdminDashboard() {
             onChange={(e) =>
               setQuery((q) => ({ ...q, sort_order: e.target.value, page: 1 }))
             }
-            className="border rounded-lg px-2 md:px-3 py-2 text-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="rounded-lg border px-2 py-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none md:px-3"
           >
             <option value="desc">Terbaru</option>
             <option value="asc">Terlama</option>
@@ -131,49 +131,49 @@ function AdminDashboard() {
       </div>
 
       {/* Table / Card view */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+      <div className="overflow-hidden rounded-xl border border-gray-100 bg-white shadow-sm">
         {error && (
-          <div className="p-4 text-red-600 text-sm bg-red-50">{error}</div>
+          <div className="bg-red-50 p-4 text-sm text-red-600">{error}</div>
         )}
 
         {loading ? (
-          <div className="p-10 flex justify-center">
-            <div className="w-8 h-8 border-4 border-indigo-600 border-t-transparent rounded-full animate-spin" />
+          <div className="flex justify-center p-10">
+            <div className="h-8 w-8 animate-spin rounded-full border-4 border-indigo-600 border-t-transparent" />
           </div>
         ) : users.length === 0 ? (
-          <div className="p-10 text-center text-gray-400 text-sm">
+          <div className="p-10 text-center text-sm text-gray-400">
             Tidak ada user ditemukan
           </div>
         ) : (
           <>
             {/* Desktop: Table */}
-            <div className="hidden md:block overflow-x-auto">
+            <div className="hidden overflow-x-auto md:block">
               <table className="w-full text-sm">
-                <thead className="bg-gray-50 border-b border-gray-100">
+                <thead className="border-b border-gray-100 bg-gray-50">
                   <tr>
-                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">
                       User
                     </th>
-                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">
                       Role
                     </th>
-                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">
                       Status
                     </th>
-                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">
                       Masuk via
                     </th>
-                    <th className="text-left px-4 py-3 text-gray-600 font-medium">
+                    <th className="px-4 py-3 text-left font-medium text-gray-600">
                       Dibuat
                     </th>
-                    <th className="text-right px-4 py-3 text-gray-600 font-medium">
+                    <th className="px-4 py-3 text-right font-medium text-gray-600">
                       Aksi
                     </th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-50">
                   {users.map((user) => (
-                    <tr key={user.id} className="hover:bg-gray-50 transition">
+                    <tr key={user.id} className="transition hover:bg-gray-50">
                       <td className="px-4 py-3">
                         <div className="flex items-center gap-3">
                           {user.avatar_url ? (
@@ -181,10 +181,10 @@ function AdminDashboard() {
                               src={user.avatar_url}
                               alt=""
                               referrerPolicy="no-referrer"
-                              className="w-8 h-8 rounded-full object-cover"
+                              className="h-8 w-8 rounded-full object-cover"
                             />
                           ) : (
-                            <div className="w-8 h-8 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-xs">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-full bg-indigo-100 text-xs font-bold text-indigo-600">
                               {user.full_name?.charAt(0).toUpperCase() || "?"}
                             </div>
                           )}
@@ -192,7 +192,7 @@ function AdminDashboard() {
                             <p className="font-medium text-gray-800">
                               {user.full_name || "-"}
                             </p>
-                            <p className="text-gray-400 text-xs">
+                            <p className="text-xs text-gray-400">
                               {user.email}
                             </p>
                           </div>
@@ -200,7 +200,7 @@ function AdminDashboard() {
                       </td>
                       <td className="px-4 py-3">
                         <span
-                          className={`px-2 py-1 rounded-full text-xs font-medium ${
+                          className={`rounded-full px-2 py-1 text-xs font-medium ${
                             user.role === "admin"
                               ? "bg-purple-100 text-purple-700"
                               : "bg-gray-100 text-gray-600"
@@ -211,15 +211,15 @@ function AdminDashboard() {
                       </td>
                       <td className="px-4 py-3">
                         {!user.is_active ? (
-                          <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-600">
+                          <span className="rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-600">
                             Nonaktif
                           </span>
                         ) : user.is_verified ? (
-                          <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
+                          <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-600">
                             Aktif
                           </span>
                         ) : (
-                          <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-600">
+                          <span className="rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-600">
                             Belum Verifikasi
                           </span>
                         )}
@@ -229,7 +229,7 @@ function AdminDashboard() {
                           ? "🔵 Google"
                           : "✉️ Email"}
                       </td>
-                      <td className="px-4 py-3 text-gray-400 text-xs">
+                      <td className="px-4 py-3 text-xs text-gray-400">
                         {new Date(user.created_at).toLocaleDateString("id-ID", {
                           day: "2-digit",
                           month: "short",
@@ -241,14 +241,14 @@ function AdminDashboard() {
                           {user.is_active && (
                             <button
                               onClick={() => handleDeactivate(user.id)}
-                              className="text-xs text-yellow-600 hover:text-yellow-800 transition"
+                              className="text-xs text-yellow-600 transition hover:text-yellow-800"
                             >
                               Nonaktifkan
                             </button>
                           )}
                           <button
                             onClick={() => handleDelete(user.id)}
-                            className="text-xs text-red-500 hover:text-red-700 transition"
+                            className="text-xs text-red-500 transition hover:text-red-700"
                           >
                             Hapus
                           </button>
@@ -261,9 +261,9 @@ function AdminDashboard() {
             </div>
 
             {/* Mobile: Card view */}
-            <div className="md:hidden divide-y divide-gray-100">
+            <div className="divide-y divide-gray-100 md:hidden">
               {users.map((user) => (
-                <div key={user.id} className="p-4 space-y-3">
+                <div key={user.id} className="space-y-3 p-4">
                   {/* User info */}
                   <div className="flex items-center gap-3">
                     {user.avatar_url ? (
@@ -271,18 +271,18 @@ function AdminDashboard() {
                         src={user.avatar_url}
                         alt=""
                         referrerPolicy="no-referrer"
-                        className="w-10 h-10 rounded-full object-cover"
+                        className="h-10 w-10 rounded-full object-cover"
                       />
                     ) : (
-                      <div className="w-10 h-10 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 font-bold text-sm">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-full bg-indigo-100 text-sm font-bold text-indigo-600">
                         {user.full_name?.charAt(0).toUpperCase() || "?"}
                       </div>
                     )}
-                    <div className="flex-1 min-w-0">
-                      <p className="font-medium text-gray-800 truncate">
+                    <div className="min-w-0 flex-1">
+                      <p className="truncate font-medium text-gray-800">
                         {user.full_name || "-"}
                       </p>
-                      <p className="text-gray-400 text-xs truncate">
+                      <p className="truncate text-xs text-gray-400">
                         {user.email}
                       </p>
                     </div>
@@ -291,7 +291,7 @@ function AdminDashboard() {
                   {/* Badges */}
                   <div className="flex flex-wrap items-center gap-2">
                     <span
-                      className={`px-2 py-1 rounded-full text-xs font-medium ${
+                      className={`rounded-full px-2 py-1 text-xs font-medium ${
                         user.role === "admin"
                           ? "bg-purple-100 text-purple-700"
                           : "bg-gray-100 text-gray-600"
@@ -300,15 +300,15 @@ function AdminDashboard() {
                       {user.role}
                     </span>
                     {!user.is_active ? (
-                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-red-100 text-red-600">
+                      <span className="rounded-full bg-red-100 px-2 py-1 text-xs font-medium text-red-600">
                         Nonaktif
                       </span>
                     ) : user.is_verified ? (
-                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-green-100 text-green-600">
+                      <span className="rounded-full bg-green-100 px-2 py-1 text-xs font-medium text-green-600">
                         Aktif
                       </span>
                     ) : (
-                      <span className="px-2 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-600">
+                      <span className="rounded-full bg-yellow-100 px-2 py-1 text-xs font-medium text-yellow-600">
                         Belum Verifikasi
                       </span>
                     )}
@@ -331,14 +331,14 @@ function AdminDashboard() {
                     {user.is_active && (
                       <button
                         onClick={() => handleDeactivate(user.id)}
-                        className="text-xs text-yellow-600 hover:text-yellow-800 transition font-medium"
+                        className="text-xs font-medium text-yellow-600 transition hover:text-yellow-800"
                       >
                         Nonaktifkan
                       </button>
                     )}
                     <button
                       onClick={() => handleDelete(user.id)}
-                      className="text-xs text-red-500 hover:text-red-700 transition font-medium"
+                      className="text-xs font-medium text-red-500 transition hover:text-red-700"
                     >
                       Hapus
                     </button>
@@ -351,7 +351,7 @@ function AdminDashboard() {
 
         {/* Pagination */}
         {meta && meta.total_pages > 1 && (
-          <div className="px-4 py-3 border-t border-gray-100 flex flex-col sm:flex-row items-center justify-between gap-2 text-sm text-gray-500">
+          <div className="flex flex-col items-center justify-between gap-2 border-t border-gray-100 px-4 py-3 text-sm text-gray-500 sm:flex-row">
             <span>
               Menampilkan {users.length} dari {meta.total} user
             </span>
@@ -359,7 +359,7 @@ function AdminDashboard() {
               <button
                 disabled={!meta.has_prev}
                 onClick={() => setQuery((q) => ({ ...q, page: q.page - 1 }))}
-                className="px-3 py-1 border rounded-lg disabled:opacity-40 hover:bg-gray-50 transition"
+                className="rounded-lg border px-3 py-1 transition hover:bg-gray-50 disabled:opacity-40"
               >
                 ← Prev
               </button>
@@ -369,7 +369,7 @@ function AdminDashboard() {
               <button
                 disabled={!meta.has_next}
                 onClick={() => setQuery((q) => ({ ...q, page: q.page + 1 }))}
-                className="px-3 py-1 border rounded-lg disabled:opacity-40 hover:bg-gray-50 transition"
+                className="rounded-lg border px-3 py-1 transition hover:bg-gray-50 disabled:opacity-40"
               >
                 Next →
               </button>

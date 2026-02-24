@@ -52,13 +52,13 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="w-full flex items-center justify-center">
-      <div className="space-y-5 p-6 max-w-lg w-full">
+    <div className="flex w-full items-center justify-center">
+      <div className="w-full max-w-lg space-y-5 p-6">
         <div className="flex items-center justify-center">
           <AuthLogo />
         </div>
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-center text-black">
+        <div className="space-y-2 text-center">
+          <h1 className="text-center text-3xl font-bold text-black">
             Buat Akun Baru
           </h1>
           <p className="text-center text-gray-500">
@@ -67,12 +67,12 @@ export default function RegisterPage() {
         </div>
 
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg">
+          <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
             {error}
           </div>
         )}
         {success && (
-          <div className="bg-green-50 text-green-700 text-sm p-3 rounded-lg">
+          <div className="rounded-lg bg-green-50 p-3 text-sm text-green-700">
             {success}
           </div>
         )}
@@ -86,7 +86,7 @@ export default function RegisterPage() {
             name="full_name"
             value={form.full_name}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-(--primary) outline-(--primary) outline-[0.5px]"
+            className="w-full rounded-lg border px-4 py-2.5 outline-[0.5px] outline-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none"
             required
           />
           <label htmlFor="username" className="font-medium">
@@ -97,7 +97,7 @@ export default function RegisterPage() {
             name="username"
             value={form.username}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-(--primary) outline-(--primary) outline-[0.5px]"
+            className="w-full rounded-lg border px-4 py-2.5 outline-[0.5px] outline-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none"
             required
           />
           <label htmlFor="email" className="font-medium">
@@ -108,7 +108,7 @@ export default function RegisterPage() {
             name="email"
             value={form.email}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-(--primary) outline-(--primary) outline-[0.5px]"
+            className="w-full rounded-lg border px-4 py-2.5 outline-[0.5px] outline-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none"
             required
           />
           <label htmlFor="password" className="font-medium">
@@ -119,7 +119,7 @@ export default function RegisterPage() {
             name="password"
             value={form.password}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-(--primary) outline-(--primary) outline-[0.5px]"
+            className="w-full rounded-lg border px-4 py-2.5 outline-[0.5px] outline-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none"
             required
           />
           <label htmlFor="confirm_password" className="font-medium">
@@ -130,14 +130,14 @@ export default function RegisterPage() {
             name="confirm_password"
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
-            className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-(--primary) outline-(--primary) outline-[0.5px]"
+            className="w-full rounded-lg border px-4 py-2.5 outline-[0.5px] outline-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none"
             required
           />
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-(--primary) text-white py-2.5 rounded-lg hover:bg-(--primary-dark) disabled:opacity-50 transition font-medium cursor-pointer"
+            className="w-full cursor-pointer rounded-lg bg-(--primary) py-2.5 font-medium text-white transition hover:bg-(--primary-dark) disabled:opacity-50"
           >
             {loading ? "Memproses..." : "Buat Akun"}
           </button>
@@ -145,7 +145,7 @@ export default function RegisterPage() {
 
         <div className="flex items-center gap-3">
           <hr className="flex-1" />
-          <span className="text-gray-400 text-sm whitespace-nowrap">atau</span>
+          <span className="text-sm whitespace-nowrap text-gray-400">atau</span>
           <hr className="flex-1" />
         </div>
         <div className="flex w-full items-center justify-center">

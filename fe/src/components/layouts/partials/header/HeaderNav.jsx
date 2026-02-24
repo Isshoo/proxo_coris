@@ -31,7 +31,7 @@ function HeaderNav() {
   );
 
   return (
-    <div className="hidden md:flex items-center gap-10">
+    <div className="hidden items-center gap-10 md:flex">
       <Link to="/" className={navLinkClass("/")}>
         Beranda
       </Link>
@@ -43,22 +43,22 @@ function HeaderNav() {
       <div className="relative" ref={fiturRef}>
         <button
           onClick={() => setFiturOpen(!fiturOpen)}
-          className={`text-[1rem] font-medium transition flex items-center gap-1 cursor-pointer ${
+          className={`flex cursor-pointer items-center gap-1 text-[1rem] font-medium transition ${
             isFiturActive
-              ? "text-black font-semibold underline underline-offset-4 underline-emerald-600"
-              : "text-gray-700 hover:text-black hover:underline hover:underline-offset-4 hover:underline-emerald-600"
+              ? "underline-emerald-600 font-semibold text-black underline underline-offset-4"
+              : "hover:underline-emerald-600 text-gray-700 hover:text-black hover:underline hover:underline-offset-4"
           }`}
         >
           Fitur
           <LuChevronDown
-            className={`w-4 h-4 transition-transform duration-200 ${
+            className={`h-4 w-4 transition-transform duration-200 ${
               fiturOpen ? "rotate-180" : ""
             }`}
           />
         </button>
 
         {fiturOpen && (
-          <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50 animate-[fadeIn_0.15s_ease-out]">
+          <div className="absolute top-full left-1/2 z-50 mt-2 w-48 -translate-x-1/2 animate-[fadeIn_0.15s_ease-out] rounded-xl border border-gray-100 bg-white py-2 shadow-lg">
             {fiturItems.map((item) => (
               <Link
                 key={item.path}
@@ -66,7 +66,7 @@ function HeaderNav() {
                 onClick={() => setFiturOpen(false)}
                 className={`block px-4 py-2.5 text-[1rem] transition ${
                   location.pathname === item.path
-                    ? "text-black bg-gray-50 font-semibold"
+                    ? "bg-gray-50 font-semibold text-black"
                     : "text-gray-700 hover:bg-gray-50 hover:text-black"
                 }`}
               >

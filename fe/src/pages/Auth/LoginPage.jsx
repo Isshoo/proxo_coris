@@ -32,13 +32,13 @@ export default function LoginPage() {
   };
 
   return (
-    <div className="w-full flex items-center justify-center">
-      <div className="space-y-5 p-6 max-w-lg w-full">
+    <div className="flex w-full items-center justify-center">
+      <div className="w-full max-w-lg space-y-5 p-6">
         <div className="flex items-center justify-center">
           <AuthLogo />
         </div>
-        <div className="text-center space-y-2">
-          <h1 className="text-3xl font-bold text-center text-black">
+        <div className="space-y-2 text-center">
+          <h1 className="text-center text-3xl font-bold text-black">
             Selamat Datang
           </h1>
           <p className="text-center text-gray-500">
@@ -47,7 +47,7 @@ export default function LoginPage() {
         </div>
 
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg">
+          <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
             {error}
           </div>
         )}
@@ -61,7 +61,7 @@ export default function LoginPage() {
             name="email"
             value={form.email}
             onChange={handleChange}
-            className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-(--primary) outline-(--primary) outline-[0.5px]"
+            className="w-full rounded-lg border px-4 py-2.5 outline-[0.5px] outline-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none"
             required
           />
           <label htmlFor="password" className="font-medium">
@@ -73,13 +73,13 @@ export default function LoginPage() {
               name="password"
               value={form.password}
               onChange={handleChange}
-              className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-1 focus:ring-(--primary) outline-(--primary) outline-[0.5px]"
+              className="w-full rounded-lg border px-4 py-2.5 outline-[0.5px] outline-(--primary) focus:ring-1 focus:ring-(--primary) focus:outline-none"
               required
             />
             <button
               type="button"
               onClick={() => setShowPassword(!showPassword)}
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-600 cursor-pointer"
+              className="absolute top-1/2 right-3 -translate-y-1/2 cursor-pointer text-gray-400 hover:text-gray-600"
             >
               {showPassword ? <FaRegEye /> : <FaRegEyeSlash />}
             </button>
@@ -96,7 +96,7 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-(--primary) text-white py-2.5 rounded-lg hover:bg-(--primary-dark) disabled:opacity-50 transition font-medium cursor-pointer"
+            className="w-full cursor-pointer rounded-lg bg-(--primary) py-2.5 font-medium text-white transition hover:bg-(--primary-dark) disabled:opacity-50"
           >
             {loading ? "Memproses..." : "Masuk"}
           </button>
@@ -104,7 +104,7 @@ export default function LoginPage() {
 
         <div className="flex items-center gap-3">
           <hr className="flex-1" />
-          <span className="text-gray-400 text-sm whitespace-nowrap">atau</span>
+          <span className="text-sm whitespace-nowrap text-gray-400">atau</span>
           <hr className="flex-1" />
         </div>
         <div className="flex w-full items-center justify-center">

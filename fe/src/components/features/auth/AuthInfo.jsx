@@ -1,26 +1,26 @@
 const AuthInfo = () => {
   return (
-    <div className="w-full bg-(--primary) rounded-xl items-center justify-center p-6 relative overflow-hidden hidden lg:flex">
+    <div className="relative hidden w-full items-center justify-center overflow-hidden rounded-xl bg-(--primary) p-6 lg:flex">
       {/* vector for background */}
       <img
         src="images/auth-vector.avif"
         alt="vector"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0 opacity-3"
+        className="absolute top-0 left-0 z-0 h-full w-full object-cover opacity-3"
       />
-      <div className="pb-50 space-y-8 z-10">
+      <div className="z-10 space-y-8 pb-50">
         <div className="flex items-center justify-center">
-          <picture className="flex items-center justify-center bg-white p-2 rounded-lg">
+          <picture className="flex items-center justify-center rounded-lg bg-white p-2">
             <img
               src="images/logo.png"
               alt="logo"
-              className="w-[55px] h-[55px]"
+              className="h-[55px] w-[55px]"
             />
           </picture>
         </div>
-        <h1 className="text-4xl font-semibold text-white text-center leading-14 text-shadow-lg">
+        <h1 className="text-center text-4xl leading-14 font-semibold text-white text-shadow-lg">
           Platform Torang Bersih untuk Sulawesi Utara yang Lebih Bersih
         </h1>
-        <p className="text-white text-center text-xl leading-8">
+        <p className="text-center text-xl leading-8 text-white">
           Bergabunglah dengan ribuan warga, komunitas, dan bank sampah. ciptakan
           lingkungan yang lebih sehat dari genggaman Anda.
         </p>
@@ -30,7 +30,7 @@ const AuthInfo = () => {
       <img
         src="images/maps-sulut.png"
         alt="map"
-        className="absolute bottom-0 right-[-10px] w-3/4 h-1/3 object-cover z-4 rounded-2xl"
+        className="absolute right-[-10px] bottom-0 z-4 h-1/3 w-3/4 rounded-2xl object-cover"
       />
     </div>
   );

@@ -24,10 +24,10 @@ function HeaderAuth({ isAuthenticated, user, onLogout }) {
 
   if (!isAuthenticated) {
     return (
-      <div className="hidden md:flex items-center">
+      <div className="hidden items-center md:flex">
         <Link
           to="/login"
-          className="px-5 py-2 bg-gray-900 text-white rounded-lg hover:bg-black transition font-medium text-sm shadow-sm"
+          className="rounded-lg bg-gray-900 px-5 py-2 text-sm font-medium text-white shadow-sm transition hover:bg-black"
         >
           Bergabung
         </Link>
@@ -36,34 +36,34 @@ function HeaderAuth({ isAuthenticated, user, onLogout }) {
   }
 
   return (
-    <div className="hidden md:flex items-center">
+    <div className="hidden items-center md:flex">
       <div className="relative" ref={avatarRef}>
         <button
           onClick={() => setAvatarOpen(!avatarOpen)}
-          className="flex items-center gap-2 cursor-pointer rounded-full hover:ring-2 hover:ring-emerald-200 transition"
+          className="flex cursor-pointer items-center gap-2 rounded-full transition hover:ring-2 hover:ring-emerald-200"
         >
           {user?.avatar_url ? (
             <img
               src={user.avatar_url}
               alt=""
               referrerPolicy="no-referrer"
-              className="w-9 h-9 rounded-full object-cover border-2 border-gray-200"
+              className="h-9 w-9 rounded-full border-2 border-gray-200 object-cover"
             />
           ) : (
-            <div className="w-9 h-9 rounded-full bg-gray-900 flex items-center justify-center text-sm font-bold text-white border-2 border-gray-400">
+            <div className="flex h-9 w-9 items-center justify-center rounded-full border-2 border-gray-400 bg-gray-900 text-sm font-bold text-white">
               {user?.username?.charAt(0).toUpperCase() || "?"}
             </div>
           )}
         </button>
 
         {avatarOpen && (
-          <div className="absolute right-0 top-full mt-2 w-60 bg-white rounded-xl shadow-lg border border-gray-100 py-2 z-50 animate-[fadeIn_0.15s_ease-out]">
+          <div className="absolute top-full right-0 z-50 mt-2 w-60 animate-[fadeIn_0.15s_ease-out] rounded-xl border border-gray-100 bg-white py-2 shadow-lg">
             {/* User info */}
-            <div className="px-4 py-3 border-b border-gray-100">
-              <p className="text-sm font-semibold text-gray-800 truncate">
+            <div className="border-b border-gray-100 px-4 py-3">
+              <p className="truncate text-sm font-semibold text-gray-800">
                 {user?.username || user?.full_name}
               </p>
-              <p className="text-xs text-gray-500 truncate mt-0.5">
+              <p className="mt-0.5 truncate text-xs text-gray-500">
                 {user?.email}
               </p>
             </div>
@@ -73,28 +73,28 @@ function HeaderAuth({ isAuthenticated, user, onLogout }) {
               <Link
                 to="/admin"
                 onClick={() => setAvatarOpen(false)}
-                className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600 transition"
+                className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 transition hover:bg-gray-50 hover:text-emerald-600"
               >
-                <LuSettings className="w-4 h-4" />
+                <LuSettings className="h-4 w-4" />
                 Admin Panel
               </Link>
             )}
             <Link
               to="/profile"
               onClick={() => setAvatarOpen(false)}
-              className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 hover:bg-gray-50 hover:text-emerald-600 transition"
+              className="flex items-center gap-3 px-4 py-2.5 text-sm text-gray-700 transition hover:bg-gray-50 hover:text-emerald-600"
             >
-              <LuUser className="w-4 h-4" />
+              <LuUser className="h-4 w-4" />
               Profil
             </Link>
 
             {/* Logout */}
-            <div className="border-t border-gray-100 mt-1 pt-1">
+            <div className="mt-1 border-t border-gray-100 pt-1">
               <button
                 onClick={handleLogout}
-                className="flex items-center gap-3 w-full px-4 py-2.5 text-sm text-red-500 hover:bg-red-50 hover:text-red-600 transition cursor-pointer"
+                className="flex w-full cursor-pointer items-center gap-3 px-4 py-2.5 text-sm text-red-500 transition hover:bg-red-50 hover:text-red-600"
               >
-                <LuLogOut className="w-4 h-4" />
+                <LuLogOut className="h-4 w-4" />
                 Keluar
               </button>
             </div>

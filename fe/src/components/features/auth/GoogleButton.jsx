@@ -27,7 +27,7 @@ export function GoogleLoginButton({ onSuccess, onError, disabled = false }) {
     <button
       onClick={() => googleLogin()}
       disabled={disabled}
-      className=" flex bg-(--primary) items-center justify-center gap-3 border border-black p-1 rounded-full hover:bg-(--primary-dark) disabled:opacity-50 transition font-medium cursor-pointer"
+      className="flex cursor-pointer items-center justify-center gap-3 rounded-full border border-black bg-(--primary) p-1 font-medium transition hover:bg-(--primary-dark) disabled:opacity-50"
     >
       <GoogleIcon />
     </button>
@@ -61,7 +61,7 @@ export function GoogleRegisterButton({ onSuccess, onError, disabled = false }) {
     <button
       onClick={() => googleRegister()}
       disabled={disabled}
-      className="flex bg-(--primary) items-center justify-center gap-3 border border-black p-1 rounded-full hover:bg-(--primary-dark) disabled:opacity-50 transition font-medium cursor-pointer"
+      className="flex cursor-pointer items-center justify-center gap-3 rounded-full border border-black bg-(--primary) p-1 font-medium transition hover:bg-(--primary-dark) disabled:opacity-50"
     >
       <GoogleIcon />
     </button>

@@ -125,21 +125,21 @@ function UserProfile() {
   };
 
   return (
-    <div className="max-w-lg mx-auto px-6 py-8 space-y-8">
+    <div className="mx-auto max-w-lg space-y-8 px-6 py-8">
       <h1 className="text-2xl font-bold text-gray-800">Profil Saya</h1>
 
       {/* Avatar Section */}
       <div className="flex items-center gap-4">
-        <div className="relative group">
+        <div className="group relative">
           {user?.avatar_url ? (
             <img
               src={user.avatar_url}
               alt="avatar"
               referrerPolicy="no-referrer"
-              className="w-20 h-20 rounded-full object-cover"
+              className="h-20 w-20 rounded-full object-cover"
             />
           ) : (
-            <div className="w-20 h-20 rounded-full bg-indigo-100 flex items-center justify-center text-indigo-600 text-2xl font-bold">
+            <div className="flex h-20 w-20 items-center justify-center rounded-full bg-indigo-100 text-2xl font-bold text-indigo-600">
               {user?.full_name?.charAt(0).toUpperCase() || "?"}
             </div>
           )}
@@ -147,9 +147,9 @@ function UserProfile() {
             type="button"
             onClick={() => fileInputRef.current?.click()}
             disabled={avatarLoading}
-            className="absolute inset-0 rounded-full bg-black/40 opacity-0 group-hover:opacity-100 transition flex items-center justify-center cursor-pointer"
+            className="absolute inset-0 flex cursor-pointer items-center justify-center rounded-full bg-black/40 opacity-0 transition group-hover:opacity-100"
           >
-            <span className="text-white text-xs font-medium">
+            <span className="text-xs font-medium text-white">
               {avatarLoading ? "..." : "Ubah"}
             </span>
           </button>
@@ -166,7 +166,7 @@ function UserProfile() {
           <p className="text-sm text-gray-500">{user?.email}</p>
           {avatarMsg && (
             <p
-              className={`text-xs mt-1 ${avatarMsg.type === "success" ? "text-green-600" : "text-red-600"}`}
+              className={`mt-1 text-xs ${avatarMsg.type === "success" ? "text-green-600" : "text-red-600"}`}
             >
               {avatarMsg.text}
             </p>
@@ -181,19 +181,19 @@ function UserProfile() {
         </h2>
 
         {success && (
-          <div className="bg-green-50 text-green-700 text-sm p-3 rounded-lg">
+          <div className="rounded-lg bg-green-50 p-3 text-sm text-green-700">
             {success}
           </div>
         )}
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg">
+          <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
             {error}
           </div>
         )}
 
         <form
           onSubmit={handleSubmit}
-          className="space-y-4 bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+          className="space-y-4 rounded-xl border border-gray-100 bg-white p-6 shadow-sm"
         >
           <div>
             <label className="text-sm font-medium text-gray-700">
@@ -204,7 +204,7 @@ function UserProfile() {
               name="full_name"
               value={form.full_name}
               onChange={handleChange}
-              className="mt-1 w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="mt-1 w-full rounded-lg border px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
           </div>
           <div>
@@ -216,7 +216,7 @@ function UserProfile() {
               name="username"
               value={form.username}
               onChange={handleChange}
-              className="mt-1 w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="mt-1 w-full rounded-lg border px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             />
           </div>
           <div>
@@ -225,13 +225,13 @@ function UserProfile() {
               type="email"
               value={user?.email}
               disabled
-              className="mt-1 w-full border rounded-lg px-4 py-2.5 bg-gray-50 text-gray-400 cursor-not-allowed"
+              className="mt-1 w-full cursor-not-allowed rounded-lg border bg-gray-50 px-4 py-2.5 text-gray-400"
             />
           </div>
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-2.5 rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition font-medium"
+            className="w-full rounded-lg bg-indigo-600 py-2.5 font-medium text-white transition hover:bg-indigo-700 disabled:opacity-50"
           >
             {loading ? "Menyimpan..." : "Simpan Perubahan"}
           </button>
@@ -244,19 +244,19 @@ function UserProfile() {
           <h2 className="text-lg font-semibold text-gray-800">Ubah Password</h2>
 
           {pwSuccess && (
-            <div className="bg-green-50 text-green-700 text-sm p-3 rounded-lg">
+            <div className="rounded-lg bg-green-50 p-3 text-sm text-green-700">
               {pwSuccess}
             </div>
           )}
           {pwError && (
-            <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg">
+            <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
               {pwError}
             </div>
           )}
 
           <form
             onSubmit={handlePwSubmit}
-            className="space-y-4 bg-white p-6 rounded-xl shadow-sm border border-gray-100"
+            className="space-y-4 rounded-xl border border-gray-100 bg-white p-6 shadow-sm"
           >
             <div>
               <label className="text-sm font-medium text-gray-700">
@@ -267,7 +267,7 @@ function UserProfile() {
                 name="current_password"
                 value={pwForm.current_password}
                 onChange={handlePwChange}
-                className="mt-1 w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="mt-1 w-full rounded-lg border px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                 required
               />
             </div>
@@ -280,7 +280,7 @@ function UserProfile() {
                 name="new_password"
                 value={pwForm.new_password}
                 onChange={handlePwChange}
-                className="mt-1 w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="mt-1 w-full rounded-lg border px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                 required
               />
             </div>
@@ -293,14 +293,14 @@ function UserProfile() {
                 name="confirm_password"
                 value={pwForm.confirm_password}
                 onChange={handlePwChange}
-                className="mt-1 w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="mt-1 w-full rounded-lg border px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
                 required
               />
             </div>
             <button
               type="submit"
               disabled={pwLoading}
-              className="w-full bg-gray-800 text-white py-2.5 rounded-lg hover:bg-gray-900 disabled:opacity-50 transition font-medium"
+              className="w-full rounded-lg bg-gray-800 py-2.5 font-medium text-white transition hover:bg-gray-900 disabled:opacity-50"
             >
               {pwLoading ? "Menyimpan..." : "Ubah Password"}
             </button>

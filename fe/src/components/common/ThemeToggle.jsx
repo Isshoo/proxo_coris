@@ -6,14 +6,14 @@ export default function ThemeToggle({ className = "" }) {
   return (
     <button
       onClick={toggleTheme}
-      className={`p-2 rounded-lg transition hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400 ${className}`}
+      className={`rounded-lg p-2 text-gray-600 transition hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-800 ${className}`}
       aria-label={isDarkMode ? "Aktifkan tema terang" : "Aktifkan tema gelap"}
       title={isDarkMode ? "Tema Terang" : "Tema Gelap"}
     >
       {isDarkMode ? (
         /* Sun icon */
         <svg
-          className="w-5 h-5"
+          className="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -28,7 +28,7 @@ export default function ThemeToggle({ className = "" }) {
       ) : (
         /* Moon icon */
         <svg
-          className="w-5 h-5"
+          className="h-5 w-5"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"

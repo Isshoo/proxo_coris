@@ -3,8 +3,8 @@ import AuthInfo from "../features/auth/AuthInfo";
 
 function AuthLayout() {
   return (
-    <div className="min-h-screen bg-white transition-colors duration-200 p-5  flex flex-col">
-      <main className="flex w-full h-full flex-1">
+    <div className="flex min-h-screen flex-col bg-white p-5 transition-colors duration-200">
+      <main className="flex h-full w-full flex-1">
         <AuthInfo />
         <Outlet />
       </main>

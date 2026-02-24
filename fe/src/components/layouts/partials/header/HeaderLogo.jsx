@@ -2,11 +2,11 @@ import { Link } from "react-router";
 
 function HeaderLogo() {
   return (
-    <Link to="/" className="flex gap-2 items-center shrink-0">
+    <Link to="/" className="flex shrink-0 items-center gap-1.5">
       <picture>
-        <img src="images/logo.png" alt="logo" className="w-[50px] h-[50px]" />
+        <img src="images/logo.png" alt="logo" className="h-[55px] w-[55px]" />
       </picture>
-      <p className="flex flex-col gap-0 text-black font-bold text-[1.1rem] leading-none">
+      <p className="flex flex-col gap-0 text-[1.3rem] leading-none font-bold text-black">
         <span>TORANG</span>
         <span>BERSIH</span>
       </p>

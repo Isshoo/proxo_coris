@@ -14,9 +14,9 @@ export default function ResetPasswordPage() {
 
   if (!token) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md text-center space-y-4">
-          <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto">
+      <div className="flex min-h-screen items-center justify-center bg-gray-50">
+        <div className="w-full max-w-md space-y-4 rounded-xl bg-white p-8 text-center shadow-md">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-red-100">
             <span className="text-3xl">❌</span>
           </div>
           <h2 className="text-xl font-bold text-gray-800">
@@ -25,7 +25,7 @@ export default function ResetPasswordPage() {
           <p className="text-gray-600">Link reset password tidak valid.</p>
           <Link
             to="/forgot-password"
-            className="inline-block mt-2 px-6 py-2.5 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition font-medium"
+            className="mt-2 inline-block rounded-lg bg-indigo-600 px-6 py-2.5 font-medium text-white transition hover:bg-indigo-700"
           >
             Minta Link Baru
           </Link>
@@ -65,9 +65,9 @@ export default function ResetPasswordPage() {
 
   if (success) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-50">
-        <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md text-center space-y-4">
-          <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+      <div className="flex min-h-screen items-center justify-center bg-gray-50">
+        <div className="w-full max-w-md space-y-4 rounded-xl bg-white p-8 text-center shadow-md">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-100">
             <span className="text-3xl">✅</span>
           </div>
           <h2 className="text-xl font-bold text-gray-800">
@@ -82,17 +82,17 @@ export default function ResetPasswordPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-50">
-      <div className="bg-white p-8 rounded-xl shadow-md w-full max-w-md space-y-5">
-        <h1 className="text-2xl font-bold text-center text-gray-800">
+    <div className="flex min-h-screen items-center justify-center bg-gray-50">
+      <div className="w-full max-w-md space-y-5 rounded-xl bg-white p-8 shadow-md">
+        <h1 className="text-center text-2xl font-bold text-gray-800">
           Reset Password
         </h1>
-        <p className="text-sm text-gray-500 text-center">
+        <p className="text-center text-sm text-gray-500">
           Masukkan password baru kamu.
         </p>
 
         {error && (
-          <div className="bg-red-50 text-red-600 text-sm p-3 rounded-lg">
+          <div className="rounded-lg bg-red-50 p-3 text-sm text-red-600">
             {error}
           </div>
         )}
@@ -103,7 +103,7 @@ export default function ResetPasswordPage() {
             placeholder="Password Baru (min. 8 karakter)"
             value={form.password}
             onChange={(e) => setForm({ ...form, password: e.target.value })}
-            className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full rounded-lg border px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             required
           />
           <input
@@ -113,13 +113,13 @@ export default function ResetPasswordPage() {
             onChange={(e) =>
               setForm({ ...form, confirmPassword: e.target.value })
             }
-            className="w-full border rounded-lg px-4 py-2.5 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+            className="w-full rounded-lg border px-4 py-2.5 focus:ring-2 focus:ring-indigo-500 focus:outline-none"
             required
           />
           <button
             type="submit"
             disabled={loading}
-            className="w-full bg-indigo-600 text-white py-2.5 rounded-lg hover:bg-indigo-700 disabled:opacity-50 transition font-medium"
+            className="w-full rounded-lg bg-indigo-600 py-2.5 font-medium text-white transition hover:bg-indigo-700 disabled:opacity-50"
           >
             {loading ? "Memproses..." : "Reset Password"}
           </button>
@@ -128,7 +128,7 @@ export default function ResetPasswordPage() {
         <p className="text-center text-sm text-gray-500">
           <Link
             to="/login"
-            className="text-indigo-600 hover:underline font-medium"
+            className="font-medium text-indigo-600 hover:underline"
           >
             ← Kembali ke Halaman Masuk
           </Link>
