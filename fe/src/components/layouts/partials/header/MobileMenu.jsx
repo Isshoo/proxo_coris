@@ -3,8 +3,13 @@ import { Link } from "react-router";
 import { LuMenu, LuX, LuChevronDown } from "react-icons/lu";
 import { fiturItems } from "./navConstants";
 
-function MobileMenu({ isAuthenticated, user, onLogout }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+function MobileMenu({
+  isAuthenticated,
+  user,
+  onLogout,
+  menuOpen,
+  setMenuOpen,
+}) {
   const [mobileFiturOpen, setMobileFiturOpen] = useState(false);
 
   const handleLogout = async () => {

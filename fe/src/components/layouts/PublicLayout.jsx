@@ -7,7 +7,7 @@ function PublicLayout() {
   const { isAuthenticated, user, logout } = useAuth();
 
   return (
-    <div className="flex min-h-screen flex-col overflow-hidden bg-gray-50 transition-colors duration-200">
+    <div className="flex min-h-screen flex-col overflow-hidden bg-white transition-colors duration-200">
       <Header isAuthenticated={isAuthenticated} user={user} onLogout={logout} />
 
       {/* Content fill empty space*/}

@@ -3,9 +3,9 @@ const AuthInfo = () => {
     <div className="relative hidden w-full items-center justify-center overflow-hidden rounded-xl bg-(--primary) p-6 lg:flex">
       {/* vector for background */}
       <img
-        src="images/auth-vector.avif"
+        src="images/auth-vector.png"
         alt="vector"
-        className="absolute top-0 left-0 z-0 h-full w-full object-cover opacity-3"
+        className="absolute top-0 left-0 z-0 h-full w-full object-cover"
       />
       <div className="z-10 space-y-8 pb-50">
         <div className="flex items-center justify-center">

@@ -6,12 +6,12 @@ import Tujuan from "../components/features/public/lannding/Tujuan";
 
 function LandingPage() {
   return (
-    <div className="relative w-full">
+    <div className="relative min-h-[5000px] w-full">
       {/* image vector background */}
       <img
-        src="images/landing-bg.png"
+        src="images/landing-bg-hero.png"
         alt="landing"
-        className="absolute top-0 left-0 z-0 w-full object-cover"
+        className="absolute top-0 left-1/2 z-0 w-full -translate-x-1/2 object-cover"
       />
       <div className="relative z-10">
         <Hero />

@@ -1,8 +1,13 @@
 function Footer() {
   return (
-    <footer className="relative z-10 border-t border-gray-200 bg-white px-4 py-4 transition-colors duration-200 md:px-6">
-      <div className="mx-auto max-w-6xl text-center text-sm text-gray-500">
-        &copy; {new Date().getFullYear()} LasalleVibers. All rights reserved.
+    <footer className="relative z-10 w-full bg-transparent px-4 py-5 transition-colors duration-200 md:px-10">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-center rounded-2xl bg-black px-4 py-10 md:px-6">
+        <div className="mx-auto flex w-full max-w-6xl">
+          <div className="flex w-full items-center text-white">
+            &copy; {new Date().getFullYear()} LasalleVibers. All rights
+            reserved.
+          </div>
+        </div>
       </div>
     </footer>
   );

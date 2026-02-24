@@ -1,7 +1,13 @@
 import React from "react";
 
 const Fitur = () => {
-  return <div>Fitur</div>;
+  return (
+    <div className="flex h-[1000px] w-full justify-center px-4 md:px-6">
+      <div className="mx-auto flex w-full max-w-6xl">
+        <h1 className="text-4xl font-bold">Fitur</h1>
+      </div>
+    </div>
+  );
 };
 
 export default Fitur;
