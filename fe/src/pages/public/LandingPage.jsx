@@ -1,15 +1,15 @@
-import Artikel from "../../components/features/public/landing/Artikel";
-import Fitur from "../../components/features/public/landing/Fitur";
+import Artikel from "../../components/features/public/landing/artikel/Artikel";
+import Fitur from "../../components/features/public/landing/fitur/Fitur";
 import Hero from "../../components/features/public/landing/Hero";
 import Peta from "../../components/features/public/landing/Peta";
-import Tujuan from "../../components/features/public/landing/Tujuan";
+import Tujuan from "../../components/features/public/landing/tujuan/Tujuan";
 
 function LandingPage() {
   return (
-    <div className="relative min-h-[5000px] w-full">
+    <div className="relative w-full">
       {/* image vector background */}
       <img
-        src="images/landing-bg-hero.png"
+        src="images/landing-bg.png"
         alt="landing"
         className="absolute top-0 left-1/2 z-0 w-full -translate-x-1/2 object-cover"
       />
